@@ -17,8 +17,8 @@ services:
     ports:
       - 8080:80
     environment:
-      - PGADMIN_DEFAULT_EMAIL=chayatorn-t@rmutp.ac.th
-      - PGADMIN_DEFAULT_PASSWORD=135792684
+      - PGADMIN_DEFAULT_EMAIL=${PG_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PG_PASS}
     restart: 'unless-stopped'
   
   strapi:
@@ -28,11 +28,11 @@ services:
       - 13372:1337
     environment:
       - name=value
-      - DATABASE_CLIENT=postgres
-      - DATABASE_HOST=192.168.56.1
-      - DATABASE_PORT=54322
-      - DATABASE_NAME=postgres
-      - DATABASE_USERNAME=chayatorn
-      - DATABASE_PASSWORD=123456
-      - DATABASE_SSL=false
+      - DATABASE_CLIENT=${ST_CLIENT}
+      - DATABASE_HOST=${ST_HOST}
+      - DATABASE_PORT=$ST_PORT}
+      - DATABASE_NAME=${ST_NAME}
+      - DATABASE_USERNAME=${ST_USERNAME}
+      - DATABASE_PASSWORD=${ST_PASSWORD}
+      - DATABASE_SSL=${ST_SSL}
     restart: 'unless-stopped'
